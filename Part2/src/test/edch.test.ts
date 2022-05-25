@@ -9,7 +9,11 @@ import {
 
 describe('ECDH test', () => {
   let eddsa: EdDSA;
+  beforeEach(async () => {
+    jest.setTimeout(20000) // ms
+  });
   beforeAll(async () => {
+    jest.setTimeout(10 * 1000);
     eddsa = await buildEddsaModule();
   }, 15000);
 
